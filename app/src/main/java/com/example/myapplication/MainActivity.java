@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.resources.AppResources;
+import com.example.myapplication.resources.RegisterLoginJsInterface;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
                     return false; // Prevent external browser from opening
                 }
             });
+            myWebView.setWebViewClient(new WebViewClient());
             setContentView(myWebView);
-            myWebView.loadUrl(String.format("%s/login_account", AppResources.Constants.LOCAL_SERVER_DOMAIN));
+            myWebView.loadUrl(String.format("%s/login", AppResources.Constants.MOBILE_PAGES));
             myWebView.getSettings().setJavaScriptEnabled(true);
+            myWebView.addJavascriptInterface(new RegisterLoginJsInterface(this), "RegisterLoginJsInterface");
         });
 
         Button loginButton = findViewById(R.id.registerButton);
@@ -52,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             setContentView(myWebView);
-            myWebView.loadUrl(String.format("%s/register", AppResources.Constants.LOCAL_SERVER_DOMAIN));
+            myWebView.setWebViewClient(new WebViewClient());
+            myWebView.loadUrl(String.format("%s/register", AppResources.Constants.MOBILE_PAGES));
+            myWebView.addJavascriptInterface(new RegisterLoginJsInterface(this), "RegisterLoginJsInterface");
             myWebView.getSettings().setJavaScriptEnabled(true);
         });
 
