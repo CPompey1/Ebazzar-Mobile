@@ -1,0 +1,19 @@
+package com.example.myapplication;
+
+import com.example.myapplication.utils.GlobalUtilities;
+
+import org.junit.Test;
+
+public class GlobalUtilitiesUnitTest {
+
+    @Test
+    public void getCookieValueTest(){
+        String testCooke = "auth_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKZmFXUWlPaUkyT0RFNU5XUmhaalUwWVdNd1lUSXlaVE0wTlRGak16WWlmUS5BSmh1MkdSWHpnZDdUb0MyZldicG1obzdsOE5Xa2ZoZ1dudmgxTEVUaldzIiwidXNlciI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmRfaGFzaCI6ImInJDJiJDEyJC9lRjNuOFFLbllFS05WNDNVeEJPeE9qdWVwYmwyNmNZRFJ3UXhtQXpjS2o3aWNJWUZFNnNlJyJ9.6sj287LGgx3lvjfJD-zFDaEFXgIEt93rAY1k7pc0I3k";
+        String val = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKZmFXUWlPaUkyT0RFNU5XUmhaalUwWVdNd1lUSXlaVE0wTlRGak16WWlmUS5BSmh1MkdSWHpnZDdUb0MyZldicG1obzdsOE5Xa2ZoZ1dudmgxTEVUaldzIiwidXNlciI6InVzZXIiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmRfaGFzaCI6ImInJDJiJDEyJC9lRjNuOFFLbllFS05WNDNVeEJPeE9qdWVwYmwyNmNZRFJ3UXhtQXpjS2o3aWNJWUZFNnNlJyJ9.6sj287LGgx3lvjfJD-zFDaEFXgIEt93rAY1k7pc0I3k";
+        assert (val.equals(GlobalUtilities.getCookieValue(testCooke,"auth_token")));
+
+        testCooke = "__stripe_mid=b5f74df5-cadb-4421-af0e-d52ea9b77197e8dc58; mutiny.user.token=dd5f712d-ea28-43cf-b88c-ea60bcc2eca4; hubspotutk=d3c4fa69444209d0e1005ca2f601bd62; rl_anonymous_id=RS_ENC_v3_ImZjNWM0ZTlmLTM0YWQtNDA1NC04Y2ZlLWIyZDA5MTA4ODU3NSI%3D; rl_page_init_referrer=RS_ENC_v3_Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIg%3D%3D; rl_page_init_referring_domain=RS_ENC_v3_Ind3dy5nb29nbGUuY29tIg%3D%3D; tailcontrol=tc--WdRwMZGyLLKiPcrECzwag; tailwww-ui=true; _hjSessionUser_5221919=eyJpZCI6IjQ2OWI0N2JkLWM2MWMtNTc1NC05MTZkLTIzNWVkYjE5YWI2YiIsImNyZWF0ZWQiOjE3NDM0NzM5NjQ4MzEsImV4aXN0aW5nIjp0cnVlfQ==; _gid=GA1.2.1910141925.1746410385; mutiny.user.session=80c43fe2-2023-4bf6-899f-335410bdd9b8; mutiny.user.session_number=15; __hstc=76893962.d3c4fa69444209d0e1005ca2f601bd62.1743473963952.1746410384381.1746493163399.12; __hssrc=1; __hssc=76893962.1.1746493163399; _gorilla_csrf=MTc0NjQ5MzE2M3xJaXR3ZWxsSmFYUnpVbXBLVlV4T1ZUSklSbmR3U0Vsb2FTOWFhSGRKZVVaeFUySlVZMlpzUXk5R1IyczlJZ289fPNyixFMxqVbj-lKuQmLiWQ3-uQQegKR1HZ9dLckRlXi; _rdt_uuid=1743473964565.fbe6e081-5bdd-4307-ac58-e1707f81a277; _ga=GA1.1.918568771.1743473965; _hjSession_5221919=eyJpZCI6ImE2ZDllODA3LTA3M2MtNGQ2MS05NTUxLWI4Yjk5MWNkNGMxMiIsImMiOjE3NDY0OTMxNjQyMDMsInMiOjAsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MH0=; _gat=1; ko_id=506fcb1e-6127-4890-b911-09a06b85c5bd; ko_sid={%22id%22:%221746493164890%22%2C%22lastTouched%22:1746493165121}; rl_session=RS_ENC_v3_eyJpZCI6MTc0NjQ5MzE2MzY1MSwiZXhwaXJlc0F0IjoxNzQ2NDk0OTY1MTIyLCJ0aW1lb3V0IjoxODAwMDAwLCJhdXRvVHJhY2siOnRydWUsInNlc3Npb25TdGFydCI6ZmFsc2V9; _ga_90VQE7S3S7=GS2.2.s1746493164$o11$g0$t1746493165$j0$l0$h0; _uetsid=9df59a40295411f0a1e55d9a9c516e0e; _uetvid=2743f3507e0b11efbc14c18c9722458d; _ga_JY69R9X5MQ=GS2.1.s1746493164$o12$g0$t1746493165$j59$l0$h0";
+        val = "RS_ENC_v3_eyJpZCI6MTc0NjQ5MzE2MzY1MSwiZXhwaXJlc0F0IjoxNzQ2NDk0OTY1MTIyLCJ0aW1lb3V0IjoxODAwMDAwLCJhdXRvVHJhY2siOnRydWUsInNlc3Npb25TdGFydCI6ZmFsc2V9";
+        assert (val.equals(GlobalUtilities.getCookieValue(testCooke,"rl_session")));
+    }
+}

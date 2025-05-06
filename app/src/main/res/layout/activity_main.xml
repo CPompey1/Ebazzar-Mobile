@@ -5,74 +5,71 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="413dp"
+        android:layout_height="894dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="407dp"
-            android:layout_height="90dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+        <include layout="@layout/header"/>
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="302dp"
             android:layout_height="142dp"
-            android:layout_marginBottom="404dp"
-            app:layout_constraintBottom_toTopOf="@+id/navigationView2"
+            android:layout_marginTop="84dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ebazzar_logo" />
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigationView2"
-            android:layout_width="407dp"
-            android:layout_height="90dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:srcCompat="@drawable/ebazzar_logo" />
 
         <Button
             android:id="@+id/registerButton"
             android:layout_width="225dp"
             android:layout_height="71dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginBottom="115dp"
             android:backgroundTint="#000000"
             android:text="Register"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/navigationView2"
+            app:layout_constraintBottom_toTopOf="@+id/guestButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginButton"
-            app:layout_constraintVertical_bias="0.214" />
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/guestButton"
+            android:layout_width="225dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="408dp"
+            android:layout_marginBottom="188dp"
+            android:backgroundTint="#000000"
+            android:text="Guest"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="225dp"
             android:layout_height="71dp"
+            android:layout_marginTop="48dp"
             android:backgroundTint="#000000"
             android:text="Login"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/navigationView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.144" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activities;
 
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.R;
 import com.example.myapplication.resources.AppResources;
 import com.example.myapplication.resources.RegisterLoginJsInterface;
 
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                     return false; // Prevent external browser from opening
                 }
             });
-            myWebView.setWebViewClient(new WebViewClient());
             setContentView(myWebView);
             myWebView.loadUrl(String.format("%s/login", AppResources.Constants.MOBILE_PAGES));
             myWebView.getSettings().setJavaScriptEnabled(true);
@@ -57,6 +57,23 @@ public class MainActivity extends AppCompatActivity {
             setContentView(myWebView);
             myWebView.setWebViewClient(new WebViewClient());
             myWebView.loadUrl(String.format("%s/register", AppResources.Constants.MOBILE_PAGES));
+            myWebView.addJavascriptInterface(new RegisterLoginJsInterface(this), "RegisterLoginJsInterface");
+            myWebView.getSettings().setJavaScriptEnabled(true);
+        });
+
+        Button guestButton = findViewById(R.id.guestButton);
+        guestButton.setOnClickListener(v -> {
+            WebView myWebView = new WebView(MainActivity.this);
+            myWebView.setWebViewClient(new WebViewClient(){
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    view.loadUrl(url); // Load the URL within the WebView
+                    return false; // Prevent external browser from opening
+                }
+            });
+            setContentView(myWebView);
+            myWebView.setWebViewClient(new WebViewClient());
+            myWebView.loadUrl(String.format("%s/", AppResources.Constants.MOBILE_PAGES));
             myWebView.addJavascriptInterface(new RegisterLoginJsInterface(this), "RegisterLoginJsInterface");
             myWebView.getSettings().setJavaScriptEnabled(true);
         });

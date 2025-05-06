@@ -4,7 +4,8 @@ public class AppResources {
 
 
     public static class Constants {
-        public static String MOBILE_PAGES = "100.121.129.41:3001/m";
+        public static String MOBILE_PAGES = "192.168.1.161:3001/m";
     }
 
 }
+

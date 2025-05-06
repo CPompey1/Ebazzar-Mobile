@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/choose_role_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/header"/>
+
+    <Button
+        android:id="@+id/SellButton"
+        android:layout_width="206dp"
+        android:layout_height="373dp"
+        android:background="#000000"
+        android:text="Sell"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColorLink="#181515"
+        app:cornerRadius="0in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642" />
+
+    <Button
+        android:id="@+id/Deliver"
+        android:layout_width="204dp"
+        android:layout_height="349dp"
+        android:background="#000000"
+        android:text="Sell"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColorLink="#181515"
+        app:cornerRadius="0in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637" />
+
+    <Button
+        android:id="@+id/BackButton"
+        android:layout_width="413dp"
+        android:layout_height="136dp"
+        android:background="#000000"
+        android:text="Back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColorLink="#181515"
+        app:cornerRadius="0in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.919" />
+
+    <Button
+        android:id="@+id/BuyButton"
+        android:layout_width="416dp"
+        android:layout_height="340dp"
+        android:background="#000000"
+        android:backgroundTint="#000000"
+        android:text="Buy"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColorLink="#181515"
+        android:textSize="34sp"
+        app:cornerRadius="0in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
