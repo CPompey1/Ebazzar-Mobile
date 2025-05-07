@@ -1,8 +1,14 @@
 package com.example.myapplication.activities;
 
+import static com.example.myapplication.resources.AppResources.Constants.AUTH_TOKEN_KEY;
+import static com.example.myapplication.resources.AppResources.Constants.MOBILE_PAGES;
+import static com.example.myapplication.resources.AppResources.Constants.SHARED_PREFERENCES_FILE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -46,13 +52,19 @@ public class ChooseRoleActivity extends AppCompatActivity {
                     return false;
                 }
             });
+            webView.getSettings().setJavaScriptEnabled(true);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
+            String cookie = String.format("%s=%s;",AUTH_TOKEN_KEY,getSharedPreferences(SHARED_PREFERENCES_FILE,Context.MODE_PRIVATE).getString(AUTH_TOKEN_KEY,AUTH_TOKEN_KEY));
+            Log.i("ChooseRoleActivity",String.format("Going to main screen, cookie: %s",AUTH_TOKEN_KEY));
+            cookieManager.setCookie(MOBILE_PAGES,cookie);
             setContentView(webView);
             webView.loadUrl(String.format("%s/", AppResources.Constants.MOBILE_PAGES));
-            webView.getSettings().setJavaScriptEnabled(true);
             webView.addJavascriptInterface(new RegisterLoginJsInterface(this),"RegisterLoginJsInterface");
         });
 
-        Button deliverButton = findViewById(R.id.BuyButton);
+        Button deliverButton = findViewById(R.id.DeliverButton);
         deliverButton.setOnClickListener(b -> {
             Context context = getBaseContext();
             Intent intent = new Intent(context, DeliverActivity.class);
