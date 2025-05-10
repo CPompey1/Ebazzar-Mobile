@@ -35,7 +35,6 @@ public class ChooseRoleActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         //todo: sell mobile pages
         Button sellButton = findViewById(R.id.SellButton);
         sellButton.setOnClickListener(b -> {
@@ -66,7 +65,7 @@ public class ChooseRoleActivity extends AppCompatActivity {
 
         Button deliverButton = findViewById(R.id.DeliverButton);
         deliverButton.setOnClickListener(b -> {
-            Context context = getBaseContext();
+            Context context = this.getBaseContext();
             Intent intent = new Intent(context, DeliverActivity.class);
             startActivity(intent,savednstanceState);
         });

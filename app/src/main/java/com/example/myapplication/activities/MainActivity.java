@@ -4,7 +4,10 @@ import static com.example.myapplication.resources.AppResources.Constants.AUTH_TO
 import static com.example.myapplication.resources.AppResources.Constants.MOBILE_PAGES;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -12,13 +15,11 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
-import com.example.myapplication.resources.AppResources;
+import com.example.myapplication.fragments.HeaderFragment;
 import com.example.myapplication.resources.RegisterLoginJsInterface;
+import com.example.myapplication.utils.UserAuthentication;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,11 +28,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        Bundle bundle = new Bundle();
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .add(R.id.header_fragment_main, HeaderFragment.class,bundle)
+                .commit();
+        String auth_token = this.getPreferences(Context.MODE_PRIVATE).getString(AUTH_TOKEN_KEY,AUTH_TOKEN_KEY);
+        if (new UserAuthentication().isLoggedIn(auth_token)){
+            Context context = this.getBaseContext();
+            Intent intent = new Intent(context, ChooseRoleActivity.class);
+            startActivity(intent);
+        }
 
         Button registerButton =  findViewById(R.id.loginButton);
         registerButton.setOnClickListener(v -> {
@@ -45,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             });
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String cookie = String.format("%s=%s;",AUTH_TOKEN_KEY,this.getPreferences(Context.MODE_PRIVATE).getString(AUTH_TOKEN_KEY,AUTH_TOKEN_KEY));
+            String cookie = String.format("%s=%s;",AUTH_TOKEN_KEY,auth_token);
             cookieManager.setCookie(MOBILE_PAGES,cookie);
             setContentView(myWebView);
             myWebView.loadUrl(String.format("%s/login", MOBILE_PAGES));
@@ -86,6 +93,5 @@ public class MainActivity extends AppCompatActivity {
             myWebView.addJavascriptInterface(new RegisterLoginJsInterface(this), "RegisterLoginJsInterface");
             myWebView.getSettings().setJavaScriptEnabled(true);
         });
-
     }
 }

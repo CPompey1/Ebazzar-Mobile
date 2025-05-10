@@ -12,28 +12,29 @@
         android:id="@+id/SellButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="133dp"
         android:background="#000000"
         android:text="Sell"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColorLink="#181515"
+        android:textSize="34sp"
         app:cornerRadius="0in"
-        app:layout_constraintBottom_toBottomOf="@+id/BackButton"
+        app:layout_constraintBottom_toTopOf="@+id/BackButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/DeliverButton"
-        app:layout_constraintTop_toBottomOf="@+id/BuyButton" />
+        app:layout_constraintTop_toBottomOf="@+id/BuyButton"
+        app:layout_constraintVertical_bias="0.73" />
 
     <Button
         android:id="@+id/DeliverButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="137dp"
         android:background="#000000"
         android:text="Deliver"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColorLink="#181515"
+        android:textSize="34sp"
         app:cornerRadius="0in"
-        app:layout_constraintBottom_toBottomOf="@+id/BackButton"
+        app:layout_constraintBottom_toTopOf="@+id/BackButton"
         app:layout_constraintEnd_toStartOf="@+id/SellButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BuyButton" />
@@ -42,14 +43,15 @@
         android:id="@+id/BackButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         android:background="#000000"
         android:text="Back"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColorLink="#181515"
+        android:textSize="34sp"
         app:cornerRadius="0in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
